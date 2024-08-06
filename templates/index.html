@@ -4,17 +4,30 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sudoku Solver</title>
-    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+    <link rel="stylesheet" href="static/styles.css">
 </head>
 <body>
     <h1>Sudoku Solver</h1>
-    <div id="sudoku-grid">
-        <!-- Generate grid using JavaScript -->
+    <div id="sudoku-grid-container">
+        <div id="sudoku-grid"></div>
+        <div id="error-message" style="display: none; color: red; margin-top: 10px;"></div>
+        <div>
+            <button id="solve-btn" onclick="solveSudoku()">Solve</button>
+            <button id="clear-btn" onclick="clearGrid()">Clear</button>
+            <button id="new-game-btn" onclick="showDifficultyModal()">New Game</button>
+        </div>
     </div>
-    <div>
-        <button onclick="solveSudoku()">Solve</button>
-        <button onclick="clearGrid()">Clear</button>
-    </div>
-    <script src="{{ url_for('static', filename='script.js') }}"></script>
+    
+    <div id="difficulty-modal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeDifficultyModal()">&times;</span>
+            <h2>Select Difficulty</h2>
+            <button onclick="newGame('easy')">Easy</button>
+            <button onclick="newGame('medium')">Medium</button>
+            <button onclick="newGame('hard')">Hard</button>
+        </div>
+    </div>    
+    
+    <script src="static/script.js"></script>
 </body>
 </html>
